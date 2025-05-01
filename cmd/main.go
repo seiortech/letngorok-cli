@@ -19,7 +19,7 @@ import (
 
 var (
 	localPort    = flag.String("local-port", "", "Port for the local server (required)")
-	tunnelServer = flag.String("server", "localhost:9000", "Address of the tunnel server")
+	tunnelServer = flag.String("server", "letngorok.web:9000", "Address of the tunnel server")
 	authToken    = flag.String("token", "", "Authentication token for tunnel server (required for the first time or to update token)")
 )
 
@@ -28,7 +28,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
 		flag.PrintDefaults()
 		fmt.Fprintf(os.Stderr, "\nExample:\n")
-		fmt.Fprintf(os.Stderr, "%s -local-port=8080 -token=YOUR_AUTH_TOKEN [-server=custom.server.com:9000]\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "%s -local-port=8080 -token=YOUR_AUTH_TOKEN [-server=letngorok.web:9000]\n", os.Args[0])
 		fmt.Fprintf(os.Stderr, "\nGet your token from the web dashboard after logging in.\n")
 	}
 
@@ -96,6 +96,7 @@ func main() {
 	decoder := json.NewDecoder(conn)
 
 	// ===== AUTHENTICATION SECTION =====
+	// TODO: add ssl later
 
 	authReq := t.TunnelMessage{
 		Type: t.TunnelAuthRequest,
