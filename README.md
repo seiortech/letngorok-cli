@@ -5,7 +5,7 @@ Letngorok CLI is a command line interface for [Legorok](https://github.com/legor
 ## Installation
 
 ```bash
-go install github.com/letngorok/legorok-cli@latest
+go install github.com/seiortech/letngorok-cli@latest
 ```
 
 ## Usage
